@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/c3.css">
+    </head>
+    <body>
+        <div id="chart"></div>
+
+        <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+        <script src="js/c3.min.js"></script>
+        <script>
+            var chart = c3.generate({
+                data: {
+                    x:'x',
+                    url: 'data/c3_test.csv',
+                    labels: true
+                },
+                subchart: {
+                    show: true
+                },
+                transition: {
+                    duration: 200
+                },
+                axis : {
+                    x : {
+                        type : 'timeseries',
+                        tick: {
+                            format: function (x) { return x.getFullYear(); }
+                            //format: '%Y' // format string is also available for timeseries data
+                        }
+                    }
+                },
+                color: {
+                    pattern: ['#2980b9','#27ae60','#d35400','#2c3e50']
+                }
+            });
+
+        </script>
+    </body>
+</html>
